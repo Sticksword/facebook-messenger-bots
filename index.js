@@ -1,42 +1,42 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var request = require('request')
-var app = express()
+var express = require('express');
+var bodyParser = require('body-parser');
+var request = require('request');
+var app = express();
 
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 5000));
 
 // Process application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Process application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 // Index route
 app.get('/', function (req, res) {
-    res.send('Hello world, I am a chat bot')
-})
+    res.send('Hello world, I am a chat bot');
+});
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
   if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
-    res.send(req.query['hub.challenge'])
+    res.send(req.query['hub.challenge']);
   } else {
-    res.send('Error, wrong token')
+    res.send('Error, wrong token');
   }
-})
+});
 
 app.post('/webhook/', function (req, res) {
-  messaging_events = req.body.entry[0].messaging
+  messaging_events = req.body.entry[0].messaging;
   for (i = 0; i < messaging_events.length; i++) {
-    event = req.body.entry[0].messaging[i]
-    sender = event.sender.id
+    event = req.body.entry[0].messaging[i];
+    sender = event.sender.id;
     if (event.message && event.message.text) {
-      text = event.message.text
-      sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200))
+      text = event.message.text;
+      sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
     }
   }
-  res.sendStatus(200)
-})
+  res.sendStatus(200);
+});
 
 var token = "CAARZC00zLJ64BAK2VOhZC6W6jBO7sAV1BIz5DgE4lFeEMYzvLWGZAgesfDhmK7pmUdZCLIeRyfVspqPXZB8fZBiMqaf19uVJ9dUZBRrDj56AjCTeIwZB7S72JK3OhfKAuYhIrnWQSOEosL9YqB8eYZBeEYOgwMJE3s5RnS05seQ3qGYqs6tI26x9ZBSi147WbaA6SeXSrRkaCImgZDZD"
 
