@@ -16,3 +16,6 @@ Setup concepts/steps:
 * `curl -ik -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<token>"`
 * after this is setup, all messages sent to the facebook page will redirect to the webhook POST api on your custom server
 * in the POST api, react accordingly and add AI if you wish
+
+somewhat useful definition of what a webhook is since I did not know prior to this:
+`A WebHook is an HTTP callback: an HTTP POST that occurs when something happens; a simple event-notification via HTTP POST. A web application implementing WebHooks will POST a message to a URL when certain things happen.`
