@@ -19,3 +19,6 @@ Setup concepts/steps:
 
 somewhat useful definition of what a webhook is since I did not know prior to this:
 `A WebHook is an HTTP callback: an HTTP POST that occurs when something happens; a simple event-notification via HTTP POST. A web application implementing WebHooks will POST a message to a URL when certain things happen.`
+
+## PRIVATE POLICY DISCLOSURE
+I will not distribute the data. Currently I have no plans to use data but in the future, I would like to tailor the bot behavior based on the data, but even so, I will ask permission first.
