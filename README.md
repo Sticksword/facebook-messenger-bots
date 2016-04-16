@@ -13,6 +13,6 @@ Setup concepts/steps:
 * clicking the 'verify and save' button should initiate the GET request to webhook api, verifying the server
 * get the page access token
 * connect the fb app to the fb page by sending a curl request:
-* curl -ik -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<token>"
+* `curl -ik -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=<token>"`
 * after this is setup, all messages sent to the facebook page will redirect to the webhook POST api on your custom server
 * in the POST api, react accordingly and add AI if you wish
